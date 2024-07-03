@@ -65,11 +65,11 @@ function createLinkedList() {
       let current = headNode;
       if (index < length) {
         for (let i = 0; i < index; i++) {
-            current = current.next;
-          }
-          return current.data;
+          current = current.next;
+        }
+        return current.data;
       } else {
-        return "This index doesn't exist"
+        return "This index doesn't exist";
       }
     } else {
       return "Empty List";
@@ -115,6 +115,29 @@ function createLinkedList() {
     string = string + "null";
     return string;
   }
+  function removeAt(index) {
+    if (headNode !== null) {
+      if (index == 0) {
+        headNode = headNode.next;
+        length--;
+        return true;
+      } else if (index < length) {
+        let current = headNode;
+        let prev = null;
+        for (let i = 0; i < index; i++) {
+          prev = current;
+          current = current.next;
+        }
+        prev.next = current.next;
+        length--;
+        return true;
+      } else {
+        return false;
+      }
+    } else {
+      return false;
+    }
+  }
   return {
     append,
     prepend,
@@ -126,6 +149,7 @@ function createLinkedList() {
     contains,
     find,
     toString,
+    removeAt,
   };
 }
 
@@ -139,6 +163,7 @@ list.append(60);
 list.prepend(70);
 list.append(80);
 list.pop();
+list.removeAt(0);
 console.log("List Size: " + list.size());
 console.log("List Head: " + list.head());
 console.log("List Tail: " + list.tail());
