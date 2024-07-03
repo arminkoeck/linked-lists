@@ -25,7 +25,7 @@ function createLinkedList() {
   }
   function pop() {
     if (headNode === null) {
-      return "Empty List";
+      return false;
     } else if (headNode.next === null) {
       headNode === null;
     } else {
@@ -46,7 +46,7 @@ function createLinkedList() {
     if (headNode !== null) {
       return headNode.data;
     } else {
-      return "Empty List";
+      return false;
     }
   }
   function tail() {
@@ -57,7 +57,7 @@ function createLinkedList() {
       }
       return current.data;
     } else {
-      return "Empty List";
+      return false;
     }
   }
   function at(index) {
@@ -72,12 +72,12 @@ function createLinkedList() {
         return "This index doesn't exist";
       }
     } else {
-      return "Empty List";
+      return false;
     }
   }
   function contains(value) {
     if (headNode === null) {
-      return "Empty List";
+      return false;
     } else {
       current = headNode;
       while (current !== null) {
@@ -91,7 +91,7 @@ function createLinkedList() {
   }
   function find(value) {
     if (headNode === null) {
-      return "Empty List";
+      return false;
     } else {
       current = headNode;
       index = 0;
